@@ -4,15 +4,15 @@
 <div class="container bg-light" style="!important;height:80vh !important">
 <div class="row"> 
     <div class="card bg-primary text-white col-sm-12 col-md-12">
-        <div class="card-body">Total Subscription  {{$sub_amount}}</div>
+        <div class="card-body">Total Subscription  {{$sub_amount ?? 0}}</div>
     </div>
     <div class="card mt-2  bg-light text-dark col-sm-12 col-md-12">
         <div class="card-body">
        
-            <h5>Default Mode of Payment: {{$default_card}}</h5>
+            <h5>Default Mode of Payment: {{$default_card ?? 'Stripe'}}</h5>
             <select class="form-select" aria-label="Default select example">
             <option selected>Change Payment Method</option>
-            <option value="1">Stripe</option>
+            <option value="1" selected>Stripe</option>
             <option value="2">Paystack</option>
           </select>
 
@@ -22,8 +22,18 @@
           <div class="card mt-2  col-sm-12 col-md-12">
           
               <div class="card-body">
-                <h4 class="card-title">{{$plan[0]->name}} Plan:</h4>
-                <p class="card-text">Amount:{{$plan[0]->description}}</p>
+                <h4 class="card-title">@if(count($plan))
+                                        {{$plan[0]->name}}: Plan
+                                       @else
+                                        Plan:Run "php artisan db:seed --class=PlanTableSeeder" to create a plan
+                                       @endif </h4>
+                <p class="card-text">Amount:
+                                        @if(count($plan))
+                                           {{$plan[0]->description}} 
+                                        @else
+                                          No plan has been created
+                                        @endif 
+                </p>
                 <form method="post" action="/pay">
                   @csrf
                   <input type="submit" value="Add Subscription">
