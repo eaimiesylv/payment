@@ -7,6 +7,7 @@ This is a simple project that allows login users to top up their subscription
 The project is still under development. Hence it only accepts stripes and paystack in test mode
 
 **Project Technology**
+
 The project is designing using
 
 Html
@@ -34,13 +35,16 @@ Apache server or any other server
 
 
 **How to set up project**
+
 Clone the project 
 
 Rename .env.example to .env
+
 Create a database using the name specific in the .env file
+
 Run the following command command
 
-1.composer update
+1. composer update
 
 2. composer install
 
