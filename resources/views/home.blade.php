@@ -24,7 +24,7 @@
               <div class="card-body">
                 <h4 class="card-title">{{$plan[0]->name}} Plan:</h4>
                 <p class="card-text">Amount:{{$plan[0]->description}}</p>
-                <a href="#" class="btn btn-primary"></a>
+                <a href="#" class="btn btn-primary">Add Subscription</a>
                 </div>
           </div>
           

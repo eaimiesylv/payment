@@ -18,7 +18,7 @@ class PlanFactory extends Factory
     {
          return [
             'name' => 'Basic',
-            'description' =>'Unlimited',
+            'description' =>'No limit to what you can pay',
 			
             
         ];
