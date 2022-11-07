@@ -4,11 +4,12 @@
 <div class="container bg-light" style="!important;height:80vh !important">
 <div class="row"> 
     <div class="card bg-primary text-white col-sm-12 col-md-12">
-        <div class="card-body">Total Subscription $0</div>
+        <div class="card-body">Total Subscription  {{$sub_amount}}</div>
     </div>
     <div class="card mt-2  bg-light text-dark col-sm-12 col-md-12">
         <div class="card-body">
-            <h5>Default Mode of Payment: Stripe</h5>
+       
+            <h5>Default Mode of Payment: {{$default_card}}</h5>
             <select class="form-select" aria-label="Default select example">
             <option selected>Change Payment Method</option>
             <option value="1">Stripe</option>
@@ -21,9 +22,9 @@
           <div class="card mt-2  col-sm-12 col-md-12">
           
               <div class="card-body">
-                <h4 class="card-title">Basic Plan:</h4>
-                <p class="card-text">Amount:$200 3 days</p>
-                <a href="#" class="btn btn-primary">Add Subscription</a>
+                <h4 class="card-title">{{$plan[0]->name}} Plan:</h4>
+                <p class="card-text">Amount:{{$plan[0]->description}}</p>
+                <a href="#" class="btn btn-primary"></a>
                 </div>
           </div>
           

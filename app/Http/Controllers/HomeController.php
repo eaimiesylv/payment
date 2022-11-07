@@ -27,9 +27,11 @@ class HomeController extends Controller
      */
     public function index(Plans $plans, Sub $sub,Cards $card)
     {
-         return $card->all();
+         $defaultcard= $card->all();
 		 $amount=$sub->all();
          $plan=$plans->all();
-        return view('home');
+         $result=array('default_card'=>$defaultcard,'sub_amount'=>$amount,'plan'=>$plan);
+        
+        return view('home',$result);
     }
 }
