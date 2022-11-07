@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-require_once('../vendor/autoload.php');
+
 /*
 /*
 |--------------------------------------------------------------------------
@@ -22,45 +22,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'redirectToGateway'])->name('pay');
-Route::get('/payment/{callback}', [App\Http\Controllers\PaymentController::class, 'handleGatewayCallback'])->name('payment');
-Route::post('/charge', function(Request $request){
-   // dd($request->all());
-    Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-	
-    $customer = Stripe\Customer::create(array(
-            "address" => [
-                "line1" => "Virani Chowk",
-                "postal_code" => "390008",
-                "city" => "Vadodara",
-                "state" => "GJ",
-                "country" => "IN",
-            ],
-            "email" => "demo@gmail.com",
-            "name" => "Nitin Pujari",
-            "source" => $request->stripeToken
-        ));
-    try{
-            Stripe\Charge::create ([
-                    "amount" => -100 * 100,
-                    "currency" => "usd",
-                    "customer" => $customer->id,
-                    "description" => "Test payment from LaravelTus.com.",
-                    "shipping" => [
-                        "name" => "Jenny Rosen",
-                        "address" => [
-                            "line1" => "510 Townsend St",
-                            "postal_code" => "98140",
-                            "city" => "San Francisco",
-                            "state" => "CA",
-                            "country" => "US",
-                        ],
-                    ]
-            ]); 
-   }
- catch (Throwable $e) {
-    report($e);
-    dd('error');
-    return false;
-}
-});
+Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'redirectToGateway'])->name('pay');//paystack
+Route::get('/payment/{callback}', [App\Http\Controllers\PaymentController::class, 'handleGatewayCallback'])->name('payment');//paystack
+Route::post('/charge', [App\Http\Controllers\ChargePaymentController::class, 'store']);///stripe

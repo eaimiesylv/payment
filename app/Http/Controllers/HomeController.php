@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Model2\Plans;
+use App\Model2\Sub;
+use App\Model2\Cards;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -21,8 +25,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Plans $plans, Sub $sub,Cards $card)
     {
+         return $card->all();
+		 $amount=$sub->all();
+         $plan=$plans->all();
         return view('home');
     }
 }
