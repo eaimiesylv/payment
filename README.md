@@ -8,7 +8,7 @@ The project is still under development. Hence it only accepts stripes and paysta
 
 **Project Technology**
 
-Project TechnologyThe project is designing using
+Project Technology are
 
 Html
 
