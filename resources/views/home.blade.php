@@ -24,7 +24,10 @@
               <div class="card-body">
                 <h4 class="card-title">{{$plan[0]->name}} Plan:</h4>
                 <p class="card-text">Amount:{{$plan[0]->description}}</p>
-                <a href="#" class="btn btn-primary">Add Subscription</a>
+                <form method="post" action="/pay">
+                  @csrf
+                  <input type="submit" value="Add Subscription">
+                </form>
                 </div>
           </div>
           
