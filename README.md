@@ -1,12 +1,12 @@
-Project Description
+**Project Description
 
 This is a simple project that allows login users to top up their subscription
 
-Project Limitation
+**Project Limitation
 
 The project is still under development. Hence it only accepts stripes and paystack in test mode
 
-Project Technology
+**Project Technology
 
 Project TechnologyThe project is designing using
 
@@ -22,7 +22,7 @@ Sass
 
 Bootstrap 5.0
 
-Project Requirement
+**Project Requirement
 
 To run this project you need
 
@@ -32,34 +32,40 @@ Mysql
 
 Apache server or any other server
 
-How to set up project Clone the project
+**How to set up project Clone the project
 
 Rename .env.example to .env Create a database using the name specific in the .env file Run the following command command
 
 1.composer update
 
-Clone the project
+2.Clone the project
 
-Rename .env.example to .env
+3.Rename .env.example to .env
 
-Create a database using the name specific in the .env file
+4.Create a database using the name specific in the .env file
 
-Run the following command command
+5.Run the following command command
 
-composer update
+6.composer update
 
-composer install
+7.composer install
 
-php artisan migrate
+8.php artisan migrate
 
-php artisan db:seed --class=PlanTableSeeder
+9.php artisan db:seed --class=PlanTableSeeder
 
-How to use the project
+**How to use the project
 
-php artisan serve
-npm run dev
-open the link generated in step 1
-register and login
-click on add subscription
-make payment using either paystack or stripe.
-Note you can only use the default choosen card for payment. However their is an option to change it
+1.php artisan serve
+
+2.npm run dev
+
+3.open the link generated in step 1
+
+4.register and login
+
+5.click on add subscription
+
+6.make payment using either paystack or stripe.
+
+7.Note you can only use the default choosen card for payment. However their is an option to change it
