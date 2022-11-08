@@ -3,21 +3,11 @@
 namespace App\Payment;
 
 
-class Gateway{
+interface Gateway{
 
 	
-    public function __construct(){
-		
-				
-    }
-	public function charge($amount){
-			
-		return [
-			'amount'=>$amount,
-			'confirmation'=>'',
-		]
-		
-	}
+   
+	public function charge();
 }
 
 ?>

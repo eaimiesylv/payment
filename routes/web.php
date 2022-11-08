@@ -25,3 +25,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'redirectToGateway'])->name('pay');//paystack
 Route::get('/payment/{callback}', [App\Http\Controllers\PaymentController::class, 'handleGatewayCallback'])->name('payment');//paystack
 Route::post('/charge', [App\Http\Controllers\ChargePaymentController::class, 'store']);///stripe
+Route::get('/allpayment', [App\Http\Controllers\AllpaymentController::class, 'charge']);///

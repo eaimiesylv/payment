@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use App\Payment\Gateway;
+use App\Payment\Stripe;
+use App\Payment\Paystack;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +15,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(Gateway::class,function($app){
+
+            return new Paystack();
+            return new Stripe();
+        });
     }
 
     /**
