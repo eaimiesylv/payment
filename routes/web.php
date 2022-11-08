@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+require_once('../vendor/autoload.php');
 
 /*
 /*
@@ -22,7 +23,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'redirectToGateway'])->name('pay');//paystack
-Route::get('/payment/{callback}', [App\Http\Controllers\PaymentController::class, 'handleGatewayCallback'])->name('payment');//paystack
-Route::post('/charge', [App\Http\Controllers\ChargePaymentController::class, 'store']);///stripe
-Route::get('/allpayment', [App\Http\Controllers\AllpaymentController::class, 'charge']);///
+//Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'redirectToGateway'])->name('pay');//process paystack
+Route::get('/payment/{callback}', [App\Http\Controllers\PaymentController::class, 'handleGatewayCallback'])->name('payment');//process paystack
+Route::post('/payment', [App\Http\Controllers\ChargePaymentController::class, 'charge']);//process stripe
+Route::post('/pay', [App\Http\Controllers\AllpaymentController::class, 'charge']);///Receive all payment
+
+Route::post('/charge', [App\Http\Controllers\HomeController::class, 'show']);
+

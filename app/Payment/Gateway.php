@@ -6,8 +6,9 @@ namespace App\Payment;
 interface Gateway{
 
 	
-   
-	public function charge();
+	//public function user();
+	//public function charge();
+	public function charge($user_detail,$order_detail);
 }
 
 ?>

@@ -32,14 +32,7 @@ class PaymentController extends Controller
             "orderID" => 23456,
         );
         return Paystack::getAuthorizationUrl($data)->redirectNow();
-        /* Subscription::firstOrcreate([
-                'user_id'=>$request->user_id,
-                'plan_id'=>$request->plan_id,
-                'quantity'=>$request->quantity,
-                'reference'=>$request->reference
-            ]);
-            
-         if($request->amount >= ($request->plan_amount*$request->quantity)){*/
+       
                 try{
                     return Paystack::getAuthorizationUrl()->redirectNow();
                 }catch(\Exception $e) {

@@ -34,4 +34,12 @@ class HomeController extends Controller
         
         return view('home',$result);
     }
+    public function show(Request $request){
+       
+        //$result=array('type'=>$request->payment);
+        
+        return view('stripe')->with(array('type'=>$request->payment));;
+    }
+
+    
 }

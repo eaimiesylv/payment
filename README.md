@@ -69,3 +69,13 @@ Rename .env.example to .env Create a database using the name specific in the .en
 6.make payment using either paystack or stripe.
 
 7.Note you can only use the default choosen card for payment. However their is an option to change it
+
+**Stripe Test Card**
+
+Cardno:4242 4242 4242 4242
+
+Cvv: any 3 digit number
+
+MM/YY: future date
+
+Zip Code: any 5 digit number
