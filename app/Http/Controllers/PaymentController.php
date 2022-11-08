@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
-use App\Models\Subscription;
+use App\Model\Subscription;
+use App\Model2\Sub;
 use Auth;
 
 use DB;
@@ -47,7 +48,7 @@ class PaymentController extends Controller
      * Obtain Paystack payment information
      * @return void
      */
-    public function handleGatewayCallback()
+    public function handleGatewayCallback(Sub $save)
     {
        // date_default_timezone_set("Africa/Lagos");
         $paymentDetails = Paystack::getPaymentData(); 
@@ -70,12 +71,8 @@ class PaymentController extends Controller
             'card_type'=>$paymentDetails['data']['authorization']['card_type'],
             'requested_amount'=>$paymentDetails['data']['requested_amount'] 
         ];*/
-        Subscription::create([
-            'user_id'=>Auth::user()->id,
-            'plan_id'=>1,
-            'amount'=>$paymentDetails['data']['amount'],
-           ]);
-           return "Payment Successful";
+        $save->save_payment($paymentDetails['data']['amount']);
+          
         
         return "Payment Was Successful";
 

@@ -79,11 +79,12 @@
             <aside class="col-md-2  bg-white" id="sidemenu">
 
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><i class="fa-solid fa-user"></i> <a href="#">Profile</a></li>
-                    <li class="list-group-item"><i class="fa-sharp fa-solid fa-folder"></i> <a href="#">Subscription Plan</a></li>
-                    <li class="list-group-item"><i class="fa-solid fa-dollar-sign"></i> <a href="#">Transaction History</a></li>
-                    <li class="list-group-item"><i class="fa-sharp fa-solid fa-message"></i> <a href="#">Message</a></li>
-                    <li class="list-group-item"><i class="fa-solid fa-headset"></i> <a href="#">Support</a></li>
+                     <li class="list-group-item"><i class="fa-solid fa-star"></i> <a href="/home">Payment</a></li>
+                    <li class="list-group-item"><i class="fa-solid fa-user"></i> <a href="/home">Profile</a></li>
+                    <li class="list-group-item"><i class="fa-sharp fa-solid fa-folder"></i> <a href="/home">Subscription Plan</a></li>
+                    <li class="list-group-item"><i class="fa-solid fa-dollar-sign"></i> <a href="/home">Transaction History</a></li>
+                    <li class="list-group-item"><i class="fa-sharp fa-solid fa-message"></i> <a href="/home">Message</a></li>
+                    <li class="list-group-item"><i class="fa-solid fa-headset"></i> <a href="/home">Support</a></li>
                 </ul>
             </aside>
             <main class="py-4 col-md-10 bg-light">
