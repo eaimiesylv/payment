@@ -4,6 +4,7 @@ namespace App\Payment;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Models\Subscription;
 
 require_once('../vendor/autoload.php');
 
@@ -40,7 +41,7 @@ class Stripe implements Gateway{
 		  }
 		try{
 			 \Stripe\Charge::create ([
-                "amount" => $form['amount'] * 100,
+                "amount" => $form['amount'],
                 "currency" => "usd",
                 "customer" => $customer->id,
                 "description" => "Test Project",
@@ -54,7 +55,12 @@ class Stripe implements Gateway{
 	  } catch (Exception $e) {
 		error_log("Another problem occurred, maybe unrelated to Stripe.");
 	  }
-			   return 'ok';
+		Subscription::create([
+		 'user_id'=>$userdetail['id'],
+		 'plan_id'=>1,
+		 'amount'=>$form['amount']
+		]);
+		return "Payment Successful";
 				
     }
 }

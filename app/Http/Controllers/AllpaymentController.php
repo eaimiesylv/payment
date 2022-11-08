@@ -20,10 +20,8 @@ class AllpaymentController extends Controller
         }
         
         $payment=\App::make(Gateway::class,  $type);
-        
         $user=User::where('id',Auth::user()->id)->first();
         $result=$payment->charge($user,$request->all());
-        
         return $result;
        
        

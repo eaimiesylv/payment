@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
-
+use App\Models\Subscription;
+use Auth;
 
 use DB;
 use Paystack;
@@ -24,7 +25,7 @@ class PaymentController extends Controller
     public function redirectToGateway(Request $request)
     {
         
-        $data = array(
+       /* $data = array(
             "amount" => 700 * 100,
             "reference" => time(),
             "email" => 'okomemmanuel1@gmail.com',
@@ -37,7 +38,7 @@ class PaymentController extends Controller
                     return Paystack::getAuthorizationUrl()->redirectNow();
                 }catch(\Exception $e) {
                     return Redirect::back()->withMessage(['msg'=>'The paystack token has expired. Please refresh the page and try again.', 'type'=>'error']);
-                }  
+                }  */
         
            
     }
@@ -50,7 +51,7 @@ class PaymentController extends Controller
     {
        // date_default_timezone_set("Africa/Lagos");
         $paymentDetails = Paystack::getPaymentData(); 
-        $array=[
+       /* $array=[
             'status'=>$paymentDetails['data']['status'],
             'amount'=>$paymentDetails['data']['amount'],
             'currency'=>$paymentDetails['data']['currency'],
@@ -68,10 +69,15 @@ class PaymentController extends Controller
             'email'=>$paymentDetails['data']['customer']['email'],
             'card_type'=>$paymentDetails['data']['authorization']['card_type'],
             'requested_amount'=>$paymentDetails['data']['requested_amount'] 
-        ];
-       
+        ];*/
+        Subscription::create([
+            'user_id'=>Auth::user()->id,
+            'plan_id'=>1,
+            'amount'=>$paymentDetails['data']['amount'],
+           ]);
+           return "Payment Successful";
         
-        return $array;
+        return "Payment Was Successful";
 
        
         // Now you have the payment details,
