@@ -1,3 +1,19 @@
+**Select Payment Method**
+
+![select payment method](https://user-images.githubusercontent.com/50324524/218066582-224f4e6c-671f-4dc0-b192-37f79e2f0d55.PNG)
+
+**Add Fund**
+
+![Add amount](https://user-images.githubusercontent.com/50324524/218066955-fc1f3a11-27b3-40ca-a78b-a6389b264928.PNG)
+
+
+**Paystack**
+![Paystack](https://user-images.githubusercontent.com/50324524/218067064-16a98d77-f8c7-4ce6-9872-b75d544b523e.PNG)
+
+
+**Balance After Payment**
+![Balance after payment](https://user-images.githubusercontent.com/50324524/218067163-6d4a167b-62f9-4f55-804c-b75177a770d8.PNG)
+
 **Project Description**
 
 This is a simple project that allows login users to top up their subscription
