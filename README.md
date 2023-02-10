@@ -8,11 +8,15 @@
 
 
 **Paystack**
+
 ![Paystack](https://user-images.githubusercontent.com/50324524/218067064-16a98d77-f8c7-4ce6-9872-b75d544b523e.PNG)
 
 
 **Balance After Payment**
+
 ![Balance after payment](https://user-images.githubusercontent.com/50324524/218067163-6d4a167b-62f9-4f55-804c-b75177a770d8.PNG)
+
+
 
 **Project Description**
 
